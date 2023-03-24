@@ -36,23 +36,25 @@ let biglietto = km * 0.21;
 function biglietto() {
     let km = document.getElementById("varKm").value;
     let eta = document.getElementById("varEta").value;
+    let nomee = document.getElementById("varNome").value;
     console.log(km)
     console.log(eta)
-    document.getElementById("iTuoiKm").innerHTML = `<p>devi fare ${km} km</p>`
-    document.getElementById("laTuaEta").innerHTML = `<p>hai ${eta} anni</p>`
+    document.getElementById("iTuoiKm").innerHTML = `<p><strong>Km da percorrere:</strong> ${km}</p>`
+    document.getElementById("laTuaEta").innerHTML = `<p><strong>Età:</strong> ${eta}</p>`
+    document.getElementById("ilTuoNome").innerHTML = `<p><strong>Nome e Cognome:</strong> ${nomee}</p>`
     let biglietto = (km * 0.21).toFixed(2);
     console.log(biglietto)
-    document.getElementById("prezzo").innerHTML = `<p>il tuo biglietto costa ${biglietto} euro</p>`
+    document.getElementById("prezzo").innerHTML = `<p><strong>Prezzo biglietto:</strong> ${biglietto} euro</p>`
 
     if (eta < 18) {
         let bigliettoUnder = biglietto - (biglietto *0.20) ;
         let bigliettoUnderRR = bigliettoUnder.toFixed(2);
-        document.getElementById("prezzoScontato").innerHTML = `<p>il prezzo finale è ${bigliettoUnderRR} euro, poichè usufruisci dello sconto pischello</p>`
+        document.getElementById("prezzoScontato").innerHTML = `<p><strong>Prezzo finale:</strong> ${bigliettoUnderRR} euro, poichè usufruisci dello sconto pischello</p>`
     } else if (eta > 65) {
         let bigliettoOver = biglietto - (biglietto *0.40);
         let bigliettoOverRR = bigliettoOver.toFixed(2);
-        document.getElementById("prezzoScontato").innerHTML = `<p>il prezzo finale è ${bigliettoOverRR} euro, poichè usufruisci dello sconto vecchiaccio</p>`
+        document.getElementById("prezzoScontato").innerHTML = `<p><strong>Prezzo finale:</strong> ${bigliettoOverRR} euro, poichè usufruisci dello sconto vecchiaccio</p>`
     } else {
-        document.getElementById("prezzoScontato").innerHTML = `<p>il prezzo finale è ${biglietto} euro, poichè non ci sono sconti per te</p>`
+        document.getElementById("prezzoScontato").innerHTML = `<p><strong>Prezzo finale:</strong> ${biglietto} euro, poichè non ci sono sconti per te</p>`
     }
 }
